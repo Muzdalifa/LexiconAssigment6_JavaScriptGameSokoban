@@ -9,6 +9,21 @@
   border: 1px solid rgba(0, 0, 0, 0.8);
   font-size: 30px;
   text-align: center;
-  width: 60px;
+  /* width: 60px; */
   height: 60px;
+}
+
+.board-cell.p {
+  background-color: rgba(17, 54, 19, 0.8);
+}
+
+.board-cell.w {
+  background-color: rgba(128, 85, 22, 0.8);
+}
+
+.board-cell.b {
+  background-color: rgba(160, 24, 24, 0.8);
+}
+.board-cell.g {
+  background-color: rgba(212, 224, 43, 0.8);
 }

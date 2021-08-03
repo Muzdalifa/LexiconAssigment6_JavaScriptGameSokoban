@@ -12,6 +12,11 @@ function addBoardCell(){
       div.id = `${i},${j}`;
       //add list of classes for each cell
       div.classList.add("board-cell");
+
+      //add new class for styling cell
+      if(row[j][0] !==" "){
+        div.classList.add( row[j][0].toLowerCase());
+      }
       //add content of each cell
       div.innerHTML = row[j][0]; // zero denotes content of the row array 
       //append child to the node
@@ -21,3 +26,35 @@ function addBoardCell(){
 }
 
 addBoardCell();
+
+document.addEventListener('keydown', onKeyPressListner)
+
+function onKeyPressListner(event){
+console.log(event);
+event.preventDefault();
+
+switch(event.key){
+  case "ArrowRight":
+  {
+    break;
+  }
+  case "ArrowRight":
+  {
+    break;
+  }
+  case "ArrowRight":
+  {
+    break;
+  }
+  case "ArrowRight":
+  {
+    break;
+  }
+}
+ 
+
+}
+
+function movePlayer(){
+
+}
