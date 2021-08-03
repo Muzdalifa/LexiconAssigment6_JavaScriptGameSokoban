@@ -38,10 +38,10 @@ function onKeyPressListner(event){
   //console.log(event);
   event.preventDefault();
 
-  //movePlayer()
+  //move()
   playerDiv = document.getElementsByClassName("p")[0];
 
-  console.log(playerDiv.id)
+  //console.log(playerDiv.id)
 
   const [x,y] = playerDiv.id.split(",").map(Number);
   // console.log(i);
@@ -50,40 +50,132 @@ function onKeyPressListner(event){
   switch(event.key){
     case "ArrowUp":
     {
-      const [destX, destY] = [x, y-1]
-      movePlayer(x, y, destX, destY);
+      moveUp(x,y)
       break;
     }
     case "ArrowDown":
     {
-      const [destX, destY] = [x, y+1]
-      movePlayer(x, y, destX, destY);
+      moveDown(x,y);
       break;
     }
     case "ArrowLeft":
     {
-      const [destX, destY] = [x-1, y];
-      movePlayer(x, y, destX, destY);
+      moveLeft(x,y)
       break;
     }
     case "ArrowRight":
     {
-      const [destX, destY] = [x+1, y]
-      movePlayer(x, y, destX, destY);      
+      moveRight(x,y)      
       break;
     }
   }
  
 }
 
-function movePlayer(x, y, destX, destY)
+function move(x, y, destX, destY)
 {
-  //add player to the new position
-  tileMap01.mapGrid[destY][destX][0] = tileMap01.mapGrid[y][x][0];
 
-  // assign empty array player to the current position
-  tileMap01.mapGrid[y][x][0] = " "; 
+  if(!["W", "B"].includes(tileMap01.mapGrid[destY][destX][0]) )
+  {
+    tileMap01.mapGrid[destY][destX][0] = tileMap01.mapGrid[y][x][0];
+    // assign empty array player to the current position
+    tileMap01.mapGrid[y][x][0] = " "; 
+    //draw new board with new player position
+    drawBoard();
+  }
+ 
+}
 
-  //draw new board with new player position
-  drawBoard();  
+function moveDown(x,y){
+
+  const target = tileMap01.mapGrid[y][x][0];
+  const [destX, destY] = [x, y+1]
+  const destination = tileMap01.mapGrid[destY][destX][0];
+
+  
+  if(target === "P")
+  {
+    console.log("moving P")
+    if(destination === "B")
+    {
+      moveDown(destX, destY);
+    }
+    move(x, y, destX, destY);
+
+  }
+  else if(target==="B"){
+    console.log("moving B")
+    move(x, y, destX, destY);
+  }
+}
+
+
+function moveUp(x,y){
+
+  const target = tileMap01.mapGrid[y][x][0];
+  const [destX, destY] = [x, y-1]
+  const destination = tileMap01.mapGrid[destY][destX][0];
+
+  
+  if(target === "P")
+  {
+    console.log("moving P")
+    if(destination === "B")
+    {
+        moveUp(destX, destY);
+    }
+    move(x, y, destX, destY);
+
+  }
+  else if(target==="B"){
+    console.log("moving B")
+    move(x, y, destX, destY);
+  }
+}
+
+function moveLeft(x,y){
+
+  const target = tileMap01.mapGrid[y][x][0];
+  const [destX, destY] = [x-1, y]
+  const destination = tileMap01.mapGrid[destY][destX][0];
+
+  
+  if(target === "P")
+  {
+    console.log("moving P")
+    if(destination === "B")
+    {
+        moveLeft(destX, destY);
+    }
+    move(x, y, destX, destY);
+
+  }
+  else if(target==="B"){
+    console.log("moving B")
+    move(x, y, destX, destY);
+  }
+}
+
+function moveRight(x,y){
+
+  const target = tileMap01.mapGrid[y][x][0];
+  const [destX, destY] = [x+1, y]
+  const destination = tileMap01.mapGrid[destY][destX][0];
+
+  
+  if(target === "P")
+  {
+    console.log("moving P")
+    if(destination === "B")
+    {
+      moveRight(destX, destY);
+    }
+    move(x, y, destX, destY);
+
+  }
+  else if(target==="B"){
+    console.log("moving B")
+    move(x, y, destX, destY);
+  }
+
 }
