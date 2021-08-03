@@ -4,7 +4,7 @@
   background-color: #2196F3;
   padding: 10px;
 }
-.board-cell {
+.board-cell, tile-space {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   font-size: 30px;
@@ -13,17 +13,26 @@
   height: 60px;
 }
 
-.board-cell.p {
-  background-color: rgba(17, 54, 19, 0.8);
+.board-cell.p, .entity-player {
+  background-color: hsla(194, 76%, 53%, 0.966);
 }
 
-.board-cell.w {
-  background-color: rgba(128, 85, 22, 0.8);
+.board-cell.w, .tile-wall {
+  background-color: rgba(134, 133, 130, 0.925);
 }
 
-.board-cell.b {
+.board-cell.b, .entity-block {
   background-color: rgba(160, 24, 24, 0.8);
 }
-.board-cell.g {
+.board-cell.g, .tile-goal {
   background-color: rgba(212, 224, 43, 0.8);
 }
+
+.board-cell.b.g, .entity-block-goal {
+  background-color: rgb(26, 218, 112);
+}
+
+.board-cell.p.g {
+  background-color: hsla(81, 76%, 53%, 0.63);
+}
+

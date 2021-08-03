@@ -24,7 +24,7 @@ function drawBoard(){
       }
 
       //add content of each cell
-      div.innerHTML = row[x][0]; // zero denotes content of the row array 
+      // div.innerHTML = row[x][0]; // zero denotes content of the row array 
       //append child to the node
       document.getElementById("game-board").appendChild(div);
     }    
