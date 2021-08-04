@@ -1,3 +1,5 @@
+"use strict";
+
 function getClass(value){
   switch(value){
     case "W":
@@ -67,7 +69,7 @@ document.addEventListener('keydown', onKeyPressListner)
 function onKeyPressListner(event){
   event.preventDefault();
 
-  playerDiv = document.getElementsByClassName(Entities.Character)[0];
+  const playerDiv = document.getElementsByClassName(Entities.Character)[0];
 
   const [x,y] = playerDiv.id.split(",").map(Number);
 
@@ -181,7 +183,7 @@ function moveUp(x,y){
 
 //move player and block to the left
 function moveLeft(x,y){
-
+  
   const target = tileMap01.mapGrid[y][x][0];
   const [destX, destY] = [x-1, y]
   const destination = tileMap01.mapGrid[destY][destX][0];
