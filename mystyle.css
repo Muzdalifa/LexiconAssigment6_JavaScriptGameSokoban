@@ -13,9 +13,7 @@
   height: 60px;
 }
 
-.entity-player {
-  background-color: hsla(194, 76%, 53%, 0.966);
-}
+
 
 .tile-wall {
   background-color: rgba(134, 133, 130, 0.925);
@@ -32,7 +30,11 @@
   background-color: #3cb371;
 }
 
-.entity-player.tile-goal {
+/* .entity-player.tile-goal {
   background-color: hsla(81, 76%, 53%, 0.63);
+} */
+
+.entity-player {
+  background-color: hsla(194, 76%, 53%, 0.966);
 }
 
