@@ -28,11 +28,11 @@
   background-color: rgba(212, 224, 43, 0.8);
 }
 
-.board-cell.b.g, .entity-block-goal {
+.board-cell.b.g, .entity-block.tile-goal {
   background-color: rgb(26, 218, 112);
 }
 
-.board-cell.p.g {
+.board-cell.p.g, .entity-player.tile-goal {
   background-color: hsla(81, 76%, 53%, 0.63);
 }
 

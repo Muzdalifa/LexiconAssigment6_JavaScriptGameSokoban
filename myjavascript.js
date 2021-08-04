@@ -1,7 +1,35 @@
+function getClass(value){
+  switch(value){
+    case "W":
+      return Tiles.Wall;
+      break;
+    case " ":
+      return Tiles.Space;
+      break;
+    case "G":
+      return Tiles.Goal;
+      break;    
+    case "P":
+      return Entities.Character;
+      break;
+  
+    case "B":
+      return Entities.Block;
+      break;
+    case "BG":
+      return Entities.BlockDone;
+      break;
+    case "PG":
+      return "player-in-goal";
+      break;
+
+}
+}
+
 function drawBoard(){
 
   //1. clear board
-  document.getElementById("game-board").innerHTML =""
+  document.getElementById("game-board").innerHTML ="";
 
   //2. drow board
   for(let y = 0; y<tileMap01.mapGrid.length;y ++)
@@ -20,7 +48,7 @@ function drawBoard(){
 
       //add new class for styling cell
       if(row[x][0] !==" "){
-        div.classList.add( ...row[x][0].split("").map(v=>v.toLowerCase()));
+        div.classList.add( ...row[x][0].split("").map(getClass));
       }
 
       //add content of each cell
@@ -40,7 +68,7 @@ function onKeyPressListner(event){
   event.preventDefault();
 
   //move()
-  playerDiv = document.getElementsByClassName("p")[0];
+  playerDiv = document.getElementsByClassName(Entities.Character)[0];
 
   //console.log(playerDiv.id)
 
