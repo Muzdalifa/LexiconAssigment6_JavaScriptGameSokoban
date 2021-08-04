@@ -4,7 +4,7 @@
   background-color: #2196F3;
   padding: 10px;
 }
-.board-cell, tile-space {
+.tile-space {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   font-size: 30px;
@@ -13,26 +13,26 @@
   height: 60px;
 }
 
-.board-cell.p, .entity-player {
+.entity-player {
   background-color: hsla(194, 76%, 53%, 0.966);
 }
 
-.board-cell.w, .tile-wall {
+.tile-wall {
   background-color: rgba(134, 133, 130, 0.925);
 }
 
-.board-cell.b, .entity-block {
+.entity-block {
   background-color: rgba(160, 24, 24, 0.8);
 }
-.board-cell.g, .tile-goal {
+.tile-goal {
   background-color: rgba(212, 224, 43, 0.8);
 }
 
-.board-cell.b.g, .entity-block.tile-goal {
+.entity-block.tile-goal {
   background-color: rgb(26, 218, 112);
 }
 
-.board-cell.p.g, .entity-player.tile-goal {
+.entity-player.tile-goal {
   background-color: hsla(81, 76%, 53%, 0.63);
 }
 

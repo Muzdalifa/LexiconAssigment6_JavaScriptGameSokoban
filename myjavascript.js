@@ -26,6 +26,7 @@ function getClass(value){
 }
 }
 
+//setp1: draw board 
 function drawBoard(){
 
   //1. clear board
@@ -34,17 +35,15 @@ function drawBoard(){
   //2. drow board
   for(let y = 0; y<tileMap01.mapGrid.length;y ++)
   {
-    //console.log(tileMap01.mapGrid[y]);
     const row = tileMap01.mapGrid[y]
     
     for(let x =0; x<row.length;x++)
     {
-      //console.log(row[x]);
       let div = document.createElement("div");
       //every cells has it's unique id
       div.id = `${x},${y}`;
       //add list of classes for each cell
-      div.classList.add("board-cell");
+      div.classList.add("tile-space");
 
       //add new class for styling cell
       if(row[x][0] !==" "){
@@ -53,6 +52,7 @@ function drawBoard(){
 
       //add content of each cell
       // div.innerHTML = row[x][0]; // zero denotes content of the row array 
+      
       //append child to the node
       document.getElementById("game-board").appendChild(div);
     }    
@@ -61,20 +61,15 @@ function drawBoard(){
 
 drawBoard();
 
+//setp2: Listening key event from user
 document.addEventListener('keydown', onKeyPressListner)
 
 function onKeyPressListner(event){
-  //console.log(event);
   event.preventDefault();
 
-  //move()
   playerDiv = document.getElementsByClassName(Entities.Character)[0];
 
-  //console.log(playerDiv.id)
-
   const [x,y] = playerDiv.id.split(",").map(Number);
-  // console.log(i);
-  // console.log(j); 
 
   switch(event.key){
     case "ArrowUp":
@@ -101,7 +96,7 @@ function onKeyPressListner(event){
  
 }
 
-//move(currentXPos, currentYPos, destX,destY )
+//step3: move object and replace
 function move(x, y, destX, destY)
 {
   let from = tileMap01.mapGrid[y][x]
@@ -141,16 +136,15 @@ function move(x, y, destX, destY)
  
 }
 
+//move player and block downwords
 function moveDown(x,y){
 
   const target = tileMap01.mapGrid[y][x][0];
   const [destX, destY] = [x, y+1]
   const destination = tileMap01.mapGrid[destY][destX][0];
 
-  
   if(target.includes("P"))
   {
-    console.log("moving P")
     if(destination.includes("B"))
     {
       moveDown(destX, destY);
@@ -159,12 +153,11 @@ function moveDown(x,y){
 
   }
   else if(target.includes("B")){
-    console.log("moving B")
     move(x, y, destX, destY);
   }
 }
 
-
+//move player and block Upwards
 function moveUp(x,y){
 
   const target = tileMap01.mapGrid[y][x][0];
@@ -174,7 +167,6 @@ function moveUp(x,y){
   
   if(target.includes("P"))
   {
-    console.log("moving P")
     if(destination.includes("B"))
     {
         moveUp(destX, destY);
@@ -183,11 +175,11 @@ function moveUp(x,y){
 
   }
   else if(target.includes("B")){
-    console.log("moving B")
     move(x, y, destX, destY);
   }
 }
 
+//move player and block to the left
 function moveLeft(x,y){
 
   const target = tileMap01.mapGrid[y][x][0];
@@ -197,7 +189,6 @@ function moveLeft(x,y){
   
   if(target.includes("P"))
   {
-    console.log("moving P")
     if(destination.includes("B"))
     {
         moveLeft(destX, destY);
@@ -206,11 +197,11 @@ function moveLeft(x,y){
 
   }
   else if(target.includes("B")){
-    console.log("moving B")
     move(x, y, destX, destY);
   }
 }
 
+//move player and block to the right
 function moveRight(x,y){
 
   const target = tileMap01.mapGrid[y][x][0];
@@ -220,16 +211,13 @@ function moveRight(x,y){
   
   if(target.includes("P"))
   {
-    console.log("moving P")
     if(destination.includes("B"))
     {
       moveRight(destX, destY);
     }
     move(x, y, destX, destY);
-
   }
   else if(target.includes("B")){
-    console.log("moving B")
     move(x, y, destX, destY);
   }
 
