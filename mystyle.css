@@ -1,8 +1,18 @@
+html{
+  max-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+}
 .game-board{
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
   background-color: #2f6fa3;
   padding: 10px;
+  z-index: 1;
+  position: relative;
+  top:0px;
+  left: 0px;
+
 }
 .tile-space {
   background-color: white;
@@ -12,29 +22,35 @@
   /* width: 60px; */
   height: 60px;
 }
-
-
-
 .tile-wall {
   background-color: rgba(134, 133, 130, 0.925);
 }
-
 .entity-block {
   background-color: rgba(160, 24, 24, 0.8);
 }
 .tile-goal {
   background-color: rgb(238, 238, 17);
 }
-
 .entity-block.tile-goal {
   background-color: rgba(160, 24, 24, 0.8);
 }
-
-/* .entity-player.tile-goal {
-  background-color: hsla(81, 76%, 53%, 0.63);
-} */
-
 .entity-player {
   background-color: hsla(244, 94%, 51%, 0.966);
 }
-
+.heading{
+  /* width: 500px; */
+  padding: 10px;
+  background-color: white;
+  /* opacity: 0.5; */
+  color: rgb(79 78 76);
+  text-align: center;
+  font-size: medium;
+  z-index: 2;
+  position: absolute;
+  top:10%;
+  right:6.2%;
+  letter-spacing: 2px;
+}
+.info{
+  text-align: left;
+}
