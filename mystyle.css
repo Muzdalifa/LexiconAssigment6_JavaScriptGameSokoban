@@ -1,11 +1,11 @@
 .game-board{
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-  background-color: #2196F3;
+  background-color: #2f6fa3;
   padding: 10px;
 }
 .tile-space {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.8);
   font-size: 30px;
   text-align: center;
@@ -23,11 +23,11 @@
   background-color: rgba(160, 24, 24, 0.8);
 }
 .tile-goal {
-  background-color: rgba(212, 224, 43, 0.8);
+  background-color: rgb(238, 238, 17);
 }
 
 .entity-block.tile-goal {
-  background-color: #3cb371;
+  background-color: rgba(160, 24, 24, 0.8);
 }
 
 /* .entity-player.tile-goal {
@@ -35,6 +35,6 @@
 } */
 
 .entity-player {
-  background-color: hsla(194, 76%, 53%, 0.966);
+  background-color: hsla(244, 94%, 51%, 0.966);
 }
 
